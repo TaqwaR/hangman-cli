@@ -1,11 +1,12 @@
 
 //Global variables
-var args = process.argv;
-var letter = args[2];
+const args = process.argv;
+const letter = args[2];
 var defaultLetter = "t";
+let guesses = [];
 
 //Constructor Base
-var Letter = function(letter) {
+const Letter = function(letter) {
   this.letter = letter;
   this.correctGuess = false;
 }
@@ -14,20 +15,24 @@ var Letter = function(letter) {
 Letter.prototype.guessCheck = function(letter) {
     if (this.letter === defaultLetter) {
       this.correctGuess = true;
+      console.log("correct guess!");
     }
 };
 
 //Constructor prototype #2
 Letter.prototype.guess = function(letter) {
+
     if (this.correctGuess === true) {
       console.log(userLetter.letter);
+      guesses.push(userLetter.letter);
     } else {
       console.log("_");
+      guesses.push("_")
     }
 };
 
 //New contructed variable
-var userLetter = new Letter(letter);
+let userLetter = new Letter(letter);
 
 //Calling prototype methods on new constructed variable
 userLetter.guessCheck();
