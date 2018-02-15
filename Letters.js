@@ -21,7 +21,6 @@ Letter.prototype.guessCheck = function(letter) {
 
 //Constructor prototype #2
 Letter.prototype.guess = function(letter) {
-
     if (this.correctGuess === true) {
       console.log(userLetter.letter);
       guesses.push(userLetter.letter);
@@ -38,4 +37,4 @@ let userLetter = new Letter(letter);
 userLetter.guessCheck();
 userLetter.guess();
 
-console.log(defaultLetter);
+module.exports = Letter;
